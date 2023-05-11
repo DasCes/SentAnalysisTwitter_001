@@ -16,7 +16,7 @@ stocks = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/maste
 
 # Row A
 a1, a2, a3 = st.columns(3)
-a1.image(Image.open('streamlit-logo-secondary-colormark-darktext.png'))
+a1.image(Image.open('Logo_of_Twitter.png'))
 a2.metric("Wind", "9 mph", "-8%")
 a3.metric("Humidity", "86%", "4%")
 
