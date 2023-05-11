@@ -12,13 +12,13 @@ with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 # Data
-seattle_weather = pd.read_csv('https://raw.githubusercontent.com/tvst/plost/master/data/seattle-weather.csv', parse_dates=['date'])
+data = pd.read_csv('data/dataset_from_06_03_to_02_04.csv')
 stocks = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/stocks_toy.csv')
 
 # Row A
 a1, a2, a3 = st.columns(3)
 a1.image(Image.open('Logo_of_Twitter.png'))
-a2.metric("Wind", "9 mph", "-8%")
+a2.metric("Wind", data['text'], "-8%")
 a3.metric("Humidity", "86%", "4%")
 
 # Row B
@@ -33,7 +33,7 @@ c1, c2 = st.columns((7,3))
 with c1:
     st.markdown('### Heatmap')
     plost.time_hist(
-    data=seattle_weather,
+    data=data,
     date='date',
     x_unit='week',
     y_unit='day',
