@@ -5,7 +5,7 @@ import plost
 from PIL import Image
 
 # Page setting
-st.set_page_config(layout="wide", page_icon="Logo_of_Twitter.png",page_title="senForWirn2023")
+st.set_page_config(layout="wide", page_icon="Logo_of_Twitter.png",page_title="SenForWirn2023")
 
 
 with open('style.css') as f:
