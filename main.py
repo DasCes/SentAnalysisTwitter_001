@@ -9,7 +9,7 @@ import plotly.express as px
 # Page setting
 st.set_page_config(layout="wide", page_icon="Logo_of_Twitter.png",page_title="SenForWirn2023")
 
-st.title("Sentiment analysis of last week", anchor=None, *, help=None)
+st.title("Sentiment analysis of last week", anchor=None, help=None)
 
 
 with open('style.css') as f:
