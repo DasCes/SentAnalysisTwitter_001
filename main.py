@@ -24,12 +24,19 @@ mask = (data['created_at'] > start_date) & (data['created_at'] <= end_date)
 data = data.loc[mask]
 data.reset_index(drop=True, inplace=True)
 
+tweets_of_week = {}
 for i, x in enumerate(data.created_at):
-    data.at[i, 'created_at'] = x.date().day
+    giorno = x.date().day
+    if giorno in tweets_of_week:
+        tweets_of_week[giorno] += 1
+    else:
+        tweets_of_week[giorno] = 1
+
 
 data["Sommatoria"] = 1
-
-fig = px.bar(data, x='created_at', y='Sommatoria')
+sorted(tweets_of_week)
+fig = px.bar(names=tweets_of_week.keys(), values=tweets_of_week.values())
+# fig = px.bar(data, x='created_at', y='Sommatoria')
 fig.update_layout(xaxis_title="day", yaxis_title="number of tweets")
 st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
 
