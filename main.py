@@ -30,7 +30,7 @@ for i, x in enumerate(data.created_at):
 data["Sommatoria"] = 1
 
 fig = px.bar(data, x='created_at', y='Sommatoria')
-fig.update_layout(xaxis_title = "day", yaxis_title = "number of tweets")
+fig.update_layout(xaxis_title="day", yaxis_title="number of tweets")
 st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
 
 
