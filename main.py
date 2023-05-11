@@ -9,6 +9,8 @@ import plotly.express as px
 # Page setting
 st.set_page_config(layout="wide", page_icon="Logo_of_Twitter.png",page_title="SenForWirn2023")
 
+st.title("Sentiment analysis of last week", anchor=None, *, help=None)
+
 
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -26,12 +28,8 @@ data.reset_index(drop=True, inplace=True)
 for i, x in enumerate(data.created_at):
     data.at[i, 'created_at'] = x.date().day
 
-
 data["Sommatoria"] = 1
 
-# Row A
-#a1, a2 = st.columns(3)
-#a1.image(Image.open('Logo_of_Twitter.png'))
 
 
 
