@@ -23,15 +23,20 @@ mask = (data['created_at'] > start_date) & (data['created_at'] <= end_date)
 data = data.loc[mask]
 data.reset_index(drop=True, inplace=True)
 
+for i, x in enumerate(data.created_at):
+    data.at[i, 'created_at'] = x.date().day
+
+
+data["Sommatoria"] = 1
 
 # Row A
-a1, a2 = st.columns(3)
-a1.image(Image.open('Logo_of_Twitter.png'))
+#a1, a2 = st.columns(3)
+#a1.image(Image.open('Logo_of_Twitter.png'))
 
 
 
-fig = px.bar(data["created_at"], x='year', y='pop')
-a2.st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
+fig = px.bar(data, x='created_at', y='Sommatoria')
+st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
 
 
 
