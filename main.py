@@ -41,12 +41,24 @@ fig.update_layout(xaxis_title="day", yaxis_title="number of tweets")
 st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
 
 
+st.header("Sentiment analysis by XML-roBERTa", anchor=None, help=None)
 # per creare pie chart xml_roberta
 score_for_xmlroberta_piechart = [0, 0, 0]
 labels = ["negative", "neutral", "positive"]
 for x in data.xlm_roberta_SCORE_numeric:
     score_for_xmlroberta_piechart[int(x)+1] += 1
 
-print(score_for_xmlroberta_piechart)
 fig = px.pie(names=labels, values=score_for_xmlroberta_piechart)
+st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
+
+
+
+st.header("Sentiment analysis by vader", anchor=None, help=None)
+# per creare pie chart xml_roberta
+score_for_vader_piechart = [0, 0, 0]
+labels = ["negative", "neutral", "positive"]
+for x in data.vader_SCORE_pnn_numeric:
+    score_for_vader_piechart[int(x)+1] += 1
+
+fig = px.pie(names=labels, values=score_for_vader_piechart)
 st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
