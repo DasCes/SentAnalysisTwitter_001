@@ -4,7 +4,7 @@ import numpy as np
 import plost
 from PIL import Image
 from datetime import datetime
-# import plotly.express as px
+import plotly.express as px
 
 # Page setting
 st.set_page_config(layout="wide", page_icon="Logo_of_Twitter.png",page_title="SenForWirn2023")
@@ -35,8 +35,8 @@ data["Sommatoria"] = 1
 
 
 
-# fig = px.bar(data, x='created_at', y='Sommatoria')
-# st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
+fig = px.bar(data, x='created_at', y='Sommatoria')
+st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
 
 
 
