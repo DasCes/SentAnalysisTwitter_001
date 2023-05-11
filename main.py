@@ -7,46 +7,6 @@ from datetime import datetime
 import plotly.express as px
 
 
-
-
-"""
-# Inject custom CSS code to center-align the content
-"""
-st.markdown(
-    """
-    <style>
-    .centered {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        text-align: center;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-# Use the centered CSS class to center-align the content
-st.markdown(
-    """
-    <div class="centered">
-        <h1>Centered Content</h1>
-        <p>This is an example of center-aligned content in Streamlit.</p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-"""
-# Inject custom CSS code to center-align the content
-"""
-
-
-
-
-
-
 # Page setting
 st.set_page_config(layout="wide", page_icon="Logo_of_Twitter.png",page_title="SenForWirn2023")
 st.title("Sentiment analysis of last week's tweets", anchor=None, help=None)
