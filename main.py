@@ -4,7 +4,8 @@ import numpy as np
 from PIL import Image
 from datetime import datetime
 import plotly.express as px
-import threading, time
+import schedule
+import time
 
 
 # Page setting
@@ -71,7 +72,11 @@ st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="stre
 WAIT_SECONDS = 5
 def stampa_tempo_ogni_n():
     st.write(time.ctime())
-    threading.Timer(WAIT_SECONDS, stampa_tempo_ogni_n).start()
+
+schedule.every(WAIT_SECONDS).seconds.do(stampa_tempo_ogni_n)
 
 
-stampa_tempo_ogni_n()
+
+while True:
+        schedule.run_pending()
+        time.sleep(1)
