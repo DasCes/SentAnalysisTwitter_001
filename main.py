@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image
 from datetime import datetime
 import plotly.express as px
+import threading, time
 
 
 # Page setting
@@ -62,3 +63,15 @@ for x in data.vader_SCORE_pnn_numeric:
 
 fig = px.pie(names=labels, values=score_for_vader_piechart)
 st.plotly_chart(fig, use_container_width=False, sharing="streamlit", theme="streamlit")
+
+
+
+
+""" proviamo a stampre ogni n secondi """
+WAIT_SECONDS = 5
+def stampa_tempo_ogni_n():
+    st.write(time.ctime())
+    threading.Timer(WAIT_SECONDS, stampa_tempo_ogni_n).start()
+
+
+stampa_tempo_ogni_n()
