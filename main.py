@@ -7,7 +7,6 @@ import plotly.express as px
 import schedule
 import time
 
-
 # Page setting
 st.set_page_config(layout="centered", page_icon="Logo_of_Twitter.png",page_title="SenForWirn2023")
 st.title("Sentiment analysis of last week's tweets", anchor=None, help=None)
